@@ -47,7 +47,7 @@ onMessageDoneFiltering.OnClientEvent:Connect(function(messageData)
         elseif message == _G.prefix..'tp' then
             teleport_to_host()
         elseif message == _G.prefix..'cmds' then
-            chat('Commands: togfarm, ping, tp, disconnect, reset, togmessage, credits, cmds')
+            chat('Commands: togfarm, ping, tp, disconnect, reset, togmessage, credits, dance, cmds')
         elseif message == _G.prefix..'disconnect' then
             teleport_to_host()
             chat('We hear that you don\'t need us anymore, we\'ll be on our way sir/ma\'am!')
@@ -69,6 +69,8 @@ onMessageDoneFiltering.OnClientEvent:Connect(function(messageData)
             end
         elseif message == _G.prefix..'credits' then
             chat('Made by DevRenix!')
+        elseif message == _G.prefix..'dance' then
+            ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer('/e dance', 'All')
         end
     end
 end)
