@@ -11,8 +11,9 @@ loadstring(game:HttpGet('https://raw.githubusercontent.com/luca5432/Roblox-ANTI-
 function chat(msg) 
     if _G.messages then
         ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(msg, 'All')
-        print(msg)
+        
     end
+    print(msg)
 end
 
 function teleport_to_host()
