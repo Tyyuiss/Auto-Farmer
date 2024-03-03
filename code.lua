@@ -47,7 +47,7 @@ onMessageDoneFiltering.OnClientEvent:Connect(function(messageData)
         elseif message == _G.prefix..'tp' then
             teleport_to_host()
         elseif message == _G.prefix..'cmds' then
-            chat('Commands: togfarm, ping, tp, disconnect, reset, togmessage, cmds')
+            chat('Commands: togfarm, ping, tp, disconnect, reset, togmessage, credits, cmds')
         elseif message == _G.prefix..'disconnect' then
             teleport_to_host()
             chat('We hear that you don\'t need us anymore, we\'ll be on our way sir/ma\'am!')
@@ -67,6 +67,8 @@ onMessageDoneFiltering.OnClientEvent:Connect(function(messageData)
                 _G.messages = true
                 chat('Messages have been ENABLED! ✅')
             end
+        elseif message == _G.prefix..'credits' then
+            chat('Made by DevRenix!')
         end
     end
 end)
