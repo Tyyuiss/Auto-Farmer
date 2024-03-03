@@ -9,7 +9,7 @@ local onMessageDoneFiltering = defaultChatSystemChatEvents:FindFirstChild("OnMes
 loadstring(game:HttpGet('https://raw.githubusercontent.com/luca5432/Roblox-ANTI-AFK-SCRIPT/main/Script'))()
 
 function chat(msg) 
-    if not (_G.messages) then
+    if _G.messages then
         ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(msg, 'All')
         print(msg)
     end
