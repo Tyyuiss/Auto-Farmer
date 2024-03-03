@@ -32,7 +32,7 @@ end
 onMessageDoneFiltering.OnClientEvent:Connect(function(messageData)
     local speaker, message = players[messageData.FromSpeaker], messageData.Message
 
-    if speaker.Name == _G.script_host then
+    if speaker.Name == _G.script_host or table.find(_G.whitelisted_users, speaker.Name) then
         if message == _G.prefix..'togfarm' then
             print('command sent')
             if _G.teleport == false then
