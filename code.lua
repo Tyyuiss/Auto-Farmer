@@ -96,6 +96,7 @@ local ALT = Instance.new("TextLabel")
 
 ScreenGui.Parent = game.CoreGui
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+ScreenGui.IgnoreGuiInset = true
 ScreenGui.ResetOnSpawn = false
 
 Frame.Parent = ScreenGui
