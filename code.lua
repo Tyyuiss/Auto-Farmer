@@ -70,7 +70,13 @@ onMessageDoneFiltering.OnClientEvent:Connect(function(messageData)
         elseif message == _G.prefix..'credits' then
             chat('Made by DevRenix!')
         elseif message == _G.prefix..'dance' then
-            ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer('/e dance', 'All')
+            local Humanoid = game:GetService('Players').LocalPlayer.Character.Humanoid
+
+            local Animation = Instance.new('Animation')
+            Animation.AnimationId = 'rbxassetid://14548619594'
+
+            local Track = Humanoid.Animator:LoadAnimation(Animation)
+            Track:Play()
         end
     end
 end)
