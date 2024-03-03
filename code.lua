@@ -45,7 +45,7 @@ onMessageDoneFiltering.OnClientEvent:Connect(function(messageData)
         elseif message == _G.prefix..'tp' then
             teleport_to_host()
         elseif message == _G.prefix..'cmds' then
-            chat('Commands: togfarm, ping, tp, cmds')
+            chat('Commands: togfarm, ping, tp, disconnect, cmds')
         elseif message == _G.prefix..'disconnect' then
             teleport_to_host()
             chat('We hear that you don\'t need us anymore, we\'ll be on our way sir/ma\'am!')
