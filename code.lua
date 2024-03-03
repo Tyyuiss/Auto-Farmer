@@ -9,8 +9,10 @@ local onMessageDoneFiltering = defaultChatSystemChatEvents:FindFirstChild("OnMes
 loadstring(game:HttpGet('https://raw.githubusercontent.com/luca5432/Roblox-ANTI-AFK-SCRIPT/main/Script'))()
 
 function chat(msg) 
-    ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(msg, 'All')
-    print(msg)
+    if not (_G.messages) then
+        ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(msg, 'All')
+        print(msg)
+    end
 end
 
 function teleport_to_host()
@@ -45,7 +47,7 @@ onMessageDoneFiltering.OnClientEvent:Connect(function(messageData)
         elseif message == _G.prefix..'tp' then
             teleport_to_host()
         elseif message == _G.prefix..'cmds' then
-            chat('Commands: togfarm, ping, tp, disconnect, reset, cmds')
+            chat('Commands: togfarm, ping, tp, disconnect, reset, togmessage, cmds')
         elseif message == _G.prefix..'disconnect' then
             teleport_to_host()
             chat('We hear that you don\'t need us anymore, we\'ll be on our way sir/ma\'am!')
@@ -57,6 +59,14 @@ onMessageDoneFiltering.OnClientEvent:Connect(function(messageData)
             chat('Resetting in 1 second! 🩸')
             task.wait(1)
             player.Character.Humanoid.Health = 0
+        elseif message == _G.prefix..'togmessage' then
+            if _G.messages == true then
+                chat('Messages have been DISABLED! ❌')
+                _G.messages = false
+            else
+                _G.messages = true
+                chat('Messages have been ENABLED! ✅')
+            end
         end
     end
 end)
