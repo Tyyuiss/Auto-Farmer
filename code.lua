@@ -46,6 +46,11 @@ onMessageDoneFiltering.OnClientEvent:Connect(function(messageData)
             teleport_to_host()
         elseif message == _G.prefix..'cmds' then
             chat('Commands: togfarm, ping, tp, cmds')
+        elseif message == _G.prefix..'disconnect' then
+            teleport_to_host()
+            chat('We hear that you don\'t need us anymore, we\'ll be on our way sir/ma\'am!')
+            task.wait(3)
+            player:Kick('Host requested disconnection!')
         end
     end
 end)
