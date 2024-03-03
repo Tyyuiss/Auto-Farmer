@@ -86,3 +86,57 @@ else
     print('Host not found! ❌')
     chat('Host not found! ❌')
 end
+
+-- GUI DOWN BELOW DONT TOUCH
+
+local ScreenGui = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local TITLE = Instance.new("TextLabel")
+local ALT = Instance.new("TextLabel")
+
+ScreenGui.Parent = game.CoreGui
+ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+ScreenGui.ResetOnSpawn = false
+
+Frame.Parent = ScreenGui
+Frame.BackgroundColor3 = Color3.fromRGB(24, 24, 24)
+Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame.BorderSizePixel = 0
+Frame.Size = UDim2.new(1, 0, 1, 0)
+
+TITLE.Name = "TITLE"
+TITLE.Parent = Frame
+TITLE.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+TITLE.BackgroundTransparency = 1.000
+TITLE.BorderColor3 = Color3.fromRGB(0, 0, 0)
+TITLE.BorderSizePixel = 0
+TITLE.Position = UDim2.new(0.235753313, 0, 0.312030077, 0)
+TITLE.Size = UDim2.new(0.527712703, 0, 0.172932327, 0)
+TITLE.Font = Enum.Font.FredokaOne
+TITLE.Text = "DevRenix's Alt Control"
+TITLE.TextColor3 = Color3.fromRGB(255, 255, 255)
+TITLE.TextScaled = true
+TITLE.TextSize = 14.000
+TITLE.TextWrapped = true
+
+ALT.Name = "ALT"
+ALT.Parent = Frame
+ALT.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ALT.BackgroundTransparency = 1.000
+ALT.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ALT.BorderSizePixel = 0
+ALT.Position = UDim2.new(0.235753313, 0, 0.463659108, 0)
+ALT.Size = UDim2.new(0.527712703, 0, 0.0726817027, 0)
+ALT.Font = Enum.Font.FredokaOne
+ALT.Text = "BOT USERNAME"
+ALT.TextColor3 = Color3.fromRGB(255, 166, 12)
+ALT.TextScaled = true
+ALT.TextSize = 14.000
+ALT.TextWrapped = true
+
+local function OLARAYA_fake_script()
+	local script = Instance.new('LocalScript', Frame)
+
+	script.Parent.ALT.Text = game:GetService('Players').LocalPlayer.Name .. ' | ' .. game:GetService('Players').LocalPlayer.UserId
+end
+coroutine.wrap(OLARAYA_fake_script)()
