@@ -2,6 +2,11 @@ local Players = game:GetService('Players')
 local ReplicatedStorage = game:GetService("ReplicatedStorage")
 local player = Players.LocalPlayer
 local host = Players:FindFirstChild(_G.script_host)
+local players, replicatedStorage = game:GetService("Players"), game:GetService("ReplicatedStorage");
+local defaultChatSystemChatEvents = replicatedStorage:FindFirstChild("DefaultChatSystemChatEvents");
+local onMessageDoneFiltering = defaultChatSystemChatEvents:FindFirstChild("OnMessageDoneFiltering");
+
+loadstring(game:HttpGet('https://raw.githubusercontent.com/luca5432/Roblox-ANTI-AFK-SCRIPT/main/Script'))()
 
 function chat(msg) 
     ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer(msg, 'All')
@@ -21,6 +26,29 @@ function teleport_to_host()
         chat("Host's character not found!")
     end
 end
+
+onMessageDoneFiltering.OnClientEvent:Connect(function(messageData)
+    local speaker, message = players[messageData.FromSpeaker], messageData.Message
+
+    if speaker.Name == _G.script_host then
+        if message == _G.prefix..'togfarm' then
+            print('command sent')
+            if _G.teleport == false then
+                _G.teleport = true
+                chat('Auto Farming has been ENABLED! ✅')
+            else
+                _G.teleport = false
+                chat('Auto Farming has been DISABLED! ❌')
+            end
+        elseif message == _G.prefix..'ping' then
+            chat('Pong!')
+        elseif message == _G.prefix..'tp' then
+            teleport_to_host()
+        elseif message == _G.prefix..'cmds' then
+            chat('Commands: togfarm, ping, tp, cmds')
+        end
+    end
+end)
 
 if host then
     chat('Farming script has been executed successfully! ✅')
