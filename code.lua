@@ -45,12 +45,18 @@ onMessageDoneFiltering.OnClientEvent:Connect(function(messageData)
         elseif message == _G.prefix..'tp' then
             teleport_to_host()
         elseif message == _G.prefix..'cmds' then
-            chat('Commands: togfarm, ping, tp, disconnect, cmds')
+            chat('Commands: togfarm, ping, tp, disconnect, reset, cmds')
         elseif message == _G.prefix..'disconnect' then
             teleport_to_host()
             chat('We hear that you don\'t need us anymore, we\'ll be on our way sir/ma\'am!')
             task.wait(3)
             player:Kick('Host requested disconnection!')
+        elseif message == _G.prefix..'reset' then
+            teleport_to_host()
+            task.wait(1)
+            chat('Resetting in 1 second! 🩸')
+            task.wait(1)
+            player.Character.Humanoid.Health = 0
         end
     end
 end)
